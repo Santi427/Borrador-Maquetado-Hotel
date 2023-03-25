@@ -39,8 +39,19 @@
 
                 <label for="contraseña">Ingrese una Contraseña</label><br>
                 <input type="text" id="contraseña" name="contraseña" value="***********"><br>
-                        
-                <input type="submit" class="btn" value="Registrar">
+
+                <div class="popup" onclick="myFunction()">Registrar
+                    <span class="popuptext" id="myPopup">Usuario Registrado Bienvenido!!!</span>
+                  </div>
+                  
+                  <script>
+                  // When the user clicks on div, open the popup
+                  function myFunction() {
+                    var popup = document.getElementById("myPopup");
+                    popup.classList.toggle("show");
+                  }
+                  </script>
+                    <br><br><br>    
             </div>
             </form> 
     </section>
