@@ -88,6 +88,7 @@ ul{
     left:700px;
     width: 700px;
     height: 606px;
+    padding: -50px 0; /* Espacio interno arriba y abajo */
 }
 
 
@@ -128,7 +129,7 @@ h2{
 
 /* Registro Formulario */
 
-.formul{
+.formul {
     text-align: center;
 }
 
@@ -136,18 +137,49 @@ h2{
     width: 35%;
     height: 30px;
     margin: 0.5rem;
-    text-align:center;
-    border-radius: 9rem;  
+    text-align: center;
+    border-radius: 9rem;
 }
 
-.formul label{
-    display:block;
+.formul label {
+    display: block;
 }
 
-
-.formul h2{
+.formul h2 {
     text-align: center;
 }
+
+.formul select {
+    width: 35%;
+    height: 30px;
+    margin: 0.5rem;
+    text-align: center;
+    text-align-last: center;
+    border-radius: 9rem;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    font-family: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333'%3E%3Cpolygon points='0,0 12,0 6,12'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+}
+.formul select:focus {
+    outline: none;
+}
+/* Delinea el select del destino */
+.formul select#destino {
+    border: 2px solid #040404;
+    outline: none;
+}
+
+.formul select:focus {
+    outline: none;
+}
+
 
 
 /* Inicio sesion */
@@ -248,4 +280,68 @@ height: 400px;
   visibility: visible;
   -webkit-animation: fadeIn 1s;
   animation: fadeIn 1s;
+}
+.personas-row {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.personas-row > div {
+    flex: 1;
+    text-align: center;
+    margin: 0 5px;
+}
+.personas-input {
+    width: 80px;
+    height: 30px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 9rem;
+    border: 2px solid #000;
+    padding: 0 10px;
+    font-family: inherit;
+}
+.personas-row label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.habitaciones-row {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.habitaciones-row > div {
+    flex: 1;
+    text-align: center;
+    margin: 0 5px;
+}
+.habitaciones-row label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+/* Opcional: Aplica el mismo estilo a los selects dentro de habitaciones-row */
+.habitaciones-row select {
+    width: 120px; /* Puedes ajustar el ancho según necesites */
+    height: 30px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 9rem;
+    border: 2px solid #000;
+    padding: 0 10px;
+    font-family: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333'%3E%3Cpolygon points='0,0 12,0 6,12'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
 }

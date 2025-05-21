@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,30 +7,59 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/style.css">
-
-    <title>Document</title>
+    <title>Iniciar sesión o Crear cuenta</title>
+    <style>
+        .hidden { display: none; }
+        .btn-switch { background: none; border: none; color: #007bff; cursor: pointer; text-decoration: underline; margin-top: 10px;}
+    </style>
 </head>
 <body>
-    
     <div class="container3">
+        <!-- Formulario de Iniciar sesión -->
+        <div id="loginForm">
+            <h2>Iniciar sesión</h2>
+            <form>
+                <input type="text" placeholder="Usuario" required>
+                <br>
+                <input type="contraseña" placeholder="Contraseña" required>
+                <br><br>
+                <a class="btn" href="#">Ingresar</a>
+                <br>
+                <a class="btn" href="index.html">Regresar</a>
+            </form>
+            <button class="btn-switch" onclick="mostrarRegistro()">¿No tienes cuenta? Crear una nueva</button>
+        </div>
 
-        <h2>Iniciar sesión</h2>
-        
-    <form>
+        <!-- Formulario de Registro -->
+        <div id="registerForm" class="hidden">
+            <h2>Crear cuenta</h2>
+            <form>
+                <input type="text" placeholder="Cédula" required>
+                <br>
+                <input type="text" placeholder="Nombre y Apellidos" required>
+                <br>
+                <input type="email" placeholder="Email" required>
+                <br>
+                <input type="password" placeholder="Crear contraseña" required>
+                <br><br>
+                <a class="btn" href="#">Registrar</a>
+                <br>
+                <a class="btn" href="index.html">Regresar</a>
+            </form>
+            <button class="btn-switch" onclick="mostrarLogin()">¿Ya tienes cuenta? Inicia sesión</button>
+        </div>
+    </div>
 
-        <input type="text"  placeholder="Usuario">
-        <br>
-        
-        <input type="text" placeholder="Email">
-        <br><br>
-        
-        <a class="btn" href="#">Ingresar</a> 
-        <br>
-        <a class="btn" href="index.html">Regresar</a> 
-
-    </form>
-
+    <script>
+        function mostrarRegistro() {
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('registerForm').classList.remove('hidden');
+        }
+        function mostrarLogin() {
+            document.getElementById('registerForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>

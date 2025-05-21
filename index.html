@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,21 +7,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="css/style.css">
-
-    <title>Hotel Viena</title>
+    <title>BreazeInTheMoon</title>
 </head>
 <body>
     <div class="container">
         <nav class="nav-main">
-            <h2>Hotel Viena</h2>
+            <h2>BreazeInTheMoon</h2>
             <ul class="nav-menu">
                 <li>
                     <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="quienes-somos.html">Quiénes Somos</a>
                 </li>
                 <li>
                     <a href="galeria.html">Galería</a>
@@ -34,43 +29,71 @@
         </nav>
         <hr>
 
-<section class="banner-one">
-    <div>
-    <img src="img/portada.jpg" alt="">
-    </div>
-</section>
+        <section class="banner-one">
+            <div>
+                <img src="img/portada.jpg" alt="">
+            </div>
+        </section>
 
-<section class="booking">
-    <h2>Reserva una habitación</h2>
-</section>
+        <section class="booking">
+            <h2>Entracuentra el hotel perfecto</h2>
+        </section>
 
 <aside class="banner-two">
-<div class="formul">
-    <form action="#">
-        <br><br><br><br><br>
-        <label for="name"><b>Check In</b></label>
-        <input type="date"><br><br>
+    <div class="formul">
+        <form action="#">
+            <br><br><br><br><br>
+            <label for="checkin"><b>Check In</b></label>
+            <input type="date" id="checkin"><br><br>
 
-        <label for="lname"><b>Check Out</b></label>
-        <input type="date"><br><br>
-        
-        <label for="telephone"><b>Adultos</b></label>
-        <input type="number"><br><br>
+            <label for="checkout"><b>Check Out</b></label>
+            <input type="date" id="checkout"><br><br>
 
-        <label for="email"><b>Niños</b></label>
-        <input type="number"><br><br>
-                
-        <a class= "btn "href="registrar.html">Consultar</a>
-    </form> 
-</div>
-</aside>
+            <label for="destino"><b>Lugar de destino</b></label>
+            <select id="destino" name="destino" required>
+                <option value="">Selecciona un destino</option>
+                <option value="san_andres">San Andrés</option>
+                <option value="cartagena">Cartagena</option>
+                <option value="santamarta">Santa Marta</option>
+                <option value="guajira">Guajira</option>
+            </select><br><br>
 
+            <label style="display:block;"><b>Selecciona para cuántas personas es la reserva</b></label>
+            <div class="personas-row">
+                <div>
+                    <label for="adultos">Adultos</label>
+                    <input type="number" id="adultos" min="1" value="1" class="personas-input">
+                </div>
+                <div>
+                    <label for="ninos">Niños</label>
+                    <input type="number" id="ninos" min="0" value="0" class="personas-input">
+                </div>
+            </div>
+            <label style="display:block; text-align:center;"><b>Selecciona el número de habitaciones y su capacidad</b></label>
+            <div class="habitaciones-row">
+                <div>
+                    <label for="numeroHabitaciones">Número de habitaciones</label>
+                    <input type="number" id="numeroHabitaciones" min="1" value="1" class="personas-input">
+                </div>
+                <div>
+                    <label for="capacidadHabitacion">Capacidad por habitación</label>
+                    <select id="capacidadHabitacion" class="personas-input">
+                        <option value="1">1 persona</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                    </select>
+                </div>
+            </div>
 
-</div>
+                    
+            <a class="btn" href="registrar.html">Consultar</a>
+        </form> 
+    </div>
+
+    </div>
 
     <footer class="footer">
     </footer>
-
-    
 </body>
 </html>
