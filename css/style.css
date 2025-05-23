@@ -84,11 +84,12 @@ ul{
     background: rgb(189, 186, 186);
     border-radius: 5px;
     position: absolute;
-    top:200px;
+    top: 170px;
     left:700px;
     width: 700px;
-    height: 606px;
-    padding: -50px 0; /* Espacio interno arriba y abajo */
+    height: auto; 
+    padding: 1px; /* Espacio interno arriba y abajo */
+    box-sizing: border-box;
 }
 
 
@@ -345,3 +346,7 @@ height: 400px;
     background-position: right 10px center;
     background-size: 10px;
 }
+
+/* Estilo para el footer */
+
+
