@@ -288,11 +288,6 @@ hr {
 
 /* ----------------------------- */
 
-
-
-
-
-
 /* Inicio sesion */
 
 .container3{
@@ -316,24 +311,6 @@ border-radius: 5px;
     text-align: center;
 }
 
-
-/* Galeria */
-
-p{
-    text-align: justify;
-}
-
-video{
-    width: 700px;
-    display:block;
-    margin: auto;
-}
-
-.images img{
-width: 450px;
-height: 400px;
-
-}
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
