@@ -26,7 +26,13 @@
         <main class="reserva-main">
             <div class="reserva-card">
                 <h2 class="reserva-title">Reserva en Karaya Dive Resort</h2>
-                <form class="reserva-form" action="confirmacion.html" method="post">
+
+                <!-- Mensaje de confirmación oculto inicialmente -->
+                <div id="mensaje-confirmacion" class="mensaje-confirmacion" style="display:none;">
+                    <p>✅ Confirmación exitosa. La confirmación ha sido enviada al número de celular proporcionado.</p>
+                </div>
+
+                <form id="form-reserva" class="reserva-form" action="confirmacion.html" method="post">
                     <!-- Selección de habitación -->
                     <section class="reserva-section">
                         <h3>Disponibilidad y tipo de habitación</h3>
@@ -141,7 +147,7 @@
                             <p class="info-pago">✅ Pagarás directamente en recepción al llegar al hotel.</p>
                         </div>
                     </section>
-                    
+
                     <button type="submit" class="btn btn-confirmar">Confirmar Reserva</button>
                 </form>
             </div>
@@ -151,5 +157,27 @@
             <p>&copy; 2025 BreazeInTheMoon. Todos los derechos reservados.</p>
         </footer>
     </div>
+
+    <script>
+        document.getElementById('form-reserva').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío real para mostrar mensaje primero
+
+            // Mostrar mensaje confirmación
+            const mensaje = document.getElementById('mensaje-confirmacion');
+            if (!mensaje) {
+                // Si no existe el contenedor, crear uno y añadir arriba del formulario
+                const contenedor = document.createElement('div');
+                contenedor.id = 'mensaje-confirmacion';
+                contenedor.className = 'mensaje-confirmacion';
+                contenedor.innerHTML = '<p>✅ Confirmación exitosa. La confirmación ha sido enviada al número de celular proporcionado.</p>';
+                this.parentNode.insertBefore(contenedor, this);
+            } else {
+                mensaje.style.display = 'block';
+            }
+
+            // Ocultar el formulario para evitar múltiples envíos
+            this.style.display = 'none';
+        });
+    </script>
 </body>
 </html>

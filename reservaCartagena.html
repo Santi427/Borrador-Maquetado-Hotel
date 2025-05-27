@@ -26,7 +26,14 @@
         <main class="reserva-main">
             <div class="reserva-card">
                 <h2 class="reserva-title">Reserva en Hernández Suite Cartagena de Indias</h2>
-                <form class="reserva-form" action="confirmacion.html" method="post">
+
+                <!-- Mensaje de confirmación oculto inicialmente -->
+                <div id="mensaje-confirmacion" class="mensaje-confirmacion" style="display:none;">
+                    <p>✅ Confirmación exitosa. La confirmación ha sido enviada al número de celular proporcionado.</p>
+                    <button id="btn-salir" class="btn-salir" type="button">Salir</button>
+                </div>
+
+                <form id="form-reserva" class="reserva-form" action="confirmacion.html" method="post">
                     <!-- Selección de habitación -->
                     <section class="reserva-section">
                         <h3>Disponibilidad y tipo de habitación</h3>
@@ -140,5 +147,24 @@
             <p>&copy; 2025 BreazeInTheMoon. Todos los derechos reservados.</p>
         </footer>
     </div>
+
+    <script>
+        const form = document.getElementById('form-reserva');
+        const mensaje = document.getElementById('mensaje-confirmacion');
+        const btnSalir = document.getElementById('btn-salir');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita envío real
+
+            // Mostrar mensaje confirmación y ocultar formulario
+            mensaje.style.display = 'block';
+            form.style.display = 'none';
+        });
+
+        btnSalir.addEventListener('click', function() {
+            // Redirigir a la página principal (puedes cambiar la URL)
+            window.location.href = 'index.html';
+        });
+    </script>
 </body>
 </html>

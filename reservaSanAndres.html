@@ -26,24 +26,31 @@
         <main class="reserva-main">
             <div class="reserva-card">
                 <h2 class="reserva-title">Reserva en GHL Hotel Sunrise</h2>
-                <form class="reserva-form" action="confirmacion.html" method="post">
+
+                <!-- Mensaje de confirmación oculto inicialmente -->
+                <div id="mensaje-confirmacion" class="mensaje-confirmacion" style="display:none;">
+                    <p>✅ Confirmación exitosa. La confirmación ha sido enviada al número de celular proporcionado.</p>
+                    <button id="btn-salir" class="btn-salir" type="button">Salir</button>
+                </div>
+
+                <form id="form-reserva" class="reserva-form" action="confirmacion.html" method="post">
                     <!-- Selección de habitación -->
                     <section class="reserva-section">
                         <h3>Disponibilidad y tipo de habitación</h3>
                         <div class="habitaciones-lista">
                             <label>
-                                <input type="radio" name="tipo_habitacion" value="matrimonial" checked>
-                                Matrimonial (2 personas) - Vista al mar<br>
+                                <input type="radio" name="tipo_habitacion" value="matrimonial" checked />
+                                Matrimonial (2 personas) - Vista al mar<br />
                                 <span class="servicios">Incluye desayuno, WiFi, aire acondicionado</span>
                             </label>
                             <label>
-                                <input type="radio" name="tipo_habitacion" value="familiar">
-                                Familiar (4 personas) - 2 camas dobles<br>
+                                <input type="radio" name="tipo_habitacion" value="familiar" />
+                                Familiar (4 personas) - 2 camas dobles<br />
                                 <span class="servicios">Incluye desayuno, WiFi, aire acondicionado, minibar</span>
                             </label>
                             <label>
-                                <input type="radio" name="tipo_habitacion" value="suite">
-                                Suite (2 personas) - Balcón privado<br>
+                                <input type="radio" name="tipo_habitacion" value="suite" />
+                                Suite (2 personas) - Balcón privado<br />
                                 <span class="servicios">Incluye desayuno, WiFi, aire acondicionado, jacuzzi, vista panorámica</span>
                             </label>
                         </div>
@@ -55,11 +62,11 @@
                         <div class="reserva-row">
                             <div>
                                 <label for="adultos">Adultos</label>
-                                <input type="number" id="adultos" name="adultos" min="1" max="4" value="2" required>
+                                <input type="number" id="adultos" name="adultos" min="1" max="4" value="2" required />
                             </div>
                             <div>
                                 <label for="ninos">Niños</label>
-                                <input type="number" id="ninos" name="ninos" min="0" max="4" value="0" required>
+                                <input type="number" id="ninos" name="ninos" min="0" max="4" value="0" required />
                             </div>
                         </div>
                     </section>
@@ -70,11 +77,11 @@
                         <div class="reserva-row">
                             <div>
                                 <label for="checkin">Check In</label>
-                                <input type="date" id="checkin" name="checkin" required>
+                                <input type="date" id="checkin" name="checkin" required />
                             </div>
                             <div>
                                 <label for="checkout">Check Out</label>
-                                <input type="date" id="checkout" name="checkout" required>
+                                <input type="date" id="checkout" name="checkout" required />
                             </div>
                         </div>
                     </section>
@@ -85,21 +92,21 @@
                         <div class="reserva-row">
                             <div>
                                 <label for="nombre">Nombre completo</label>
-                                <input type="text" id="nombre" name="nombre" required>
+                                <input type="text" id="nombre" name="nombre" required />
                             </div>
                             <div>
                                 <label for="email">Correo electrónico</label>
-                                <input type="email" id="email" name="email" required>
+                                <input type="email" id="email" name="email" required />
                             </div>
                         </div>
                         <div class="reserva-row">
                             <div>
                                 <label for="telefono">Teléfono</label>
-                                <input type="tel" id="telefono" name="telefono" required>
+                                <input type="tel" id="telefono" name="telefono" required />
                             </div>
                             <div>
                                 <label for="documento">Documento de identidad</label>
-                                <input type="text" id="documento" name="documento" required>
+                                <input type="text" id="documento" name="documento" required />
                             </div>
                         </div>
                     </section>
@@ -108,9 +115,9 @@
                     <section class="reserva-section">
                         <h3>Servicios adicionales</h3>
                         <div class="servicios-adicionales">
-                            <label><input type="checkbox" name="servicio[]" value="transporte"> Transporte aeropuerto-hotel</label>
-                            <label><input type="checkbox" name="servicio[]" value="spa"> Spa y masajes</label>
-                            <label><input type="checkbox" name="servicio[]" value="cena"> Cena romántica</label>
+                            <label><input type="checkbox" name="servicio[]" value="transporte" /> Transporte aeropuerto-hotel</label>
+                            <label><input type="checkbox" name="servicio[]" value="spa" /> Spa y masajes</label>
+                            <label><input type="checkbox" name="servicio[]" value="cena" /> Cena romántica</label>
                         </div>
                     </section>
 
@@ -119,10 +126,10 @@
                         <h3>Método de Pago</h3>
                         <div class="metodo-pago">
                             <label class="metodo-option">
-                                <input type="radio" name="metodo_pago" value="presencial" checked>
+                                <input type="radio" name="metodo_pago" value="presencial" checked />
                                 <span class="metodo-contenido">
                                     <span class="metodo-icon">🏨</span>
-                                    <span class="metodo-texto">Pago en el<br>Hotel</span>
+                                    <span class="metodo-texto">Pago en el<br />Hotel</span>
                                 </span>
                             </label>
                         </div>
@@ -140,5 +147,24 @@
             <p>&copy; 2025 BreazeInTheMoon. Todos los derechos reservados.</p>
         </footer>
     </div>
+
+    <script>
+        const form = document.getElementById('form-reserva');
+        const mensaje = document.getElementById('mensaje-confirmacion');
+        const btnSalir = document.getElementById('btn-salir');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita envío real
+
+            // Mostrar mensaje confirmación y ocultar formulario
+            mensaje.style.display = 'block';
+            form.style.display = 'none';
+        });
+
+        btnSalir.addEventListener('click', function() {
+            // Redirigir a la página principal (puedes cambiar la URL)
+            window.location.href = 'index.html';
+        });
+    </script>
 </body>
 </html>
