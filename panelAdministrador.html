@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panel Administrador | BreazeInTheMoon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/hotel-detail.css" />
+</head>
+<body>
+  <div class="container">
+    <nav class="nav-main">
+      <h2>BreazeInTheMoon</h2>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+      </ul>
+      <a href="inicio-sesion.html" class="btn">INICIO DE SESION</a>
+    </nav>
+    <hr />
+
+    <main class="admin-main">
+      <div class="admin-tabs">
+        <button class="tab-btn active" data-tab="usuarios">Usuarios</button>
+        <button class="tab-btn" data-tab="reservas">Reservas</button>
+      </div>
+
+      <!-- Usuarios -->
+      <section id="usuarios" class="admin-section active">
+        <h2>Gestión de Usuarios</h2>
+        <form id="form-crear-usuario" class="admin-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="usuario-nombre">Nombre de usuario</label>
+              <input type="text" id="usuario-nombre" name="usuario-nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="usuario-email">Correo electrónico</label>
+              <input type="email" id="usuario-email" name="usuario-email" required />
+            </div>
+            <div class="form-group">
+              <label for="usuario-rol">Rol</label>
+              <select id="usuario-rol" name="usuario-rol" required>
+                <option value="admin">Administrador</option>
+                <option value="recepcion">Recepción</option>
+                <option value="cliente">Cliente</option>
+              </select>
+            </div>
+            <div class="form-group form-btn">
+              <button type="submit" class="btn btn-crear">Crear Usuario</button>
+            </div>
+          </div>
+        </form>
+
+        <h3>Lista de usuarios</h3>
+        <div class="tabla-responsive">
+          <table class="tabla" id="tabla-usuarios">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Juan Pérez</td>
+                <td>juan.perez@example.com</td>
+                <td>Administrador</td>
+                <td><button class="btn btn-eliminar">Eliminar</button></td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Ana Gómez</td>
+                <td>ana.gomez@example.com</td>
+                <td>Recepción</td>
+                <td><button class="btn btn-eliminar">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Reservas -->
+      <section id="reservas" class="admin-section">
+        <h2>Gestión de Reservas</h2>
+        <div class="tabla-responsive">
+          <table class="tabla" id="tabla-reservas">
+            <thead>
+              <tr>
+                <th>ID Reserva</th>
+                <th>Cliente</th>
+                <th>Hotel</th>
+                <th>Habitación</th>
+                <th>Check-In</th>
+                <th>Check-Out</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>101</td>
+                <td>Laura Martínez</td>
+                <td>GHL Hotel Sunrise</td>
+                <td>Suite</td>
+                <td>2025-07-10</td>
+                <td>2025-07-15</td>
+                <td>Confirmada</td>
+                <td>
+                  <button class="btn btn-modificar">Modificar</button>
+                  <button class="btn btn-eliminar">Eliminar</button>
+                </td>
+              </tr>
+              <tr>
+                <td>102</td>
+                <td>Carlos Ruiz</td>
+                <td>Hernández Suite Cartagena</td>
+                <td>Suite Estándar</td>
+                <td>2025-08-01</td>
+                <td>2025-08-05</td>
+                <td>Cancelada</td>
+                <td>
+                  <button class="btn btn-modificar">Modificar</button>
+                  <button class="btn btn-eliminar">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 BreazeInTheMoon. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Tabs
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const adminSections = document.querySelectorAll('.admin-section');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        adminSections.forEach(s => s.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    // Eliminar usuario/reserva
+    document.querySelectorAll('.btn-eliminar').forEach(btn => {
+      btn.addEventListener('click', e => {
+        if (confirm('¿Estás seguro de eliminar este registro?')) {
+          e.target.closest('tr').remove();
+        }
+      });
+    });
+
+    // Crear usuario (demo)
+    document.getElementById('form-crear-usuario').addEventListener('submit', e => {
+      e.preventDefault();
+      const nombre = e.target['usuario-nombre'].value.trim();
+      const email = e.target['usuario-email'].value.trim();
+      const rol = e.target['usuario-rol'].value;
+      if (!nombre || !email) {
+        alert('Por favor completa todos los campos.');
+        return;
+      }
+      const tbody = document.querySelector('#tabla-usuarios tbody');
+      const newRow = document.createElement('tr');
+      const newId = tbody.children.length + 1;
+      newRow.innerHTML = `
+        <td>${newId}</td>
+        <td>${nombre}</td>
+        <td>${email}</td>
+        <td>${rol.charAt(0).toUpperCase() + rol.slice(1)}</td>
+        <td><button class="btn btn-eliminar">Eliminar</button></td>
+      `;
+      tbody.appendChild(newRow);
+      newRow.querySelector('.btn-eliminar').addEventListener('click', e => {
+        if (confirm('¿Estás seguro de eliminar este usuario?')) {
+          newRow.remove();
+        }
+      });
+      e.target.reset();
+      alert('Usuario creado correctamente.');
+    });
+
+    // Modificar reserva (demo)
+    document.querySelectorAll('.btn-modificar').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const row = e.target.closest('tr');
+        alert(`Aquí podrías abrir un formulario para modificar la reserva ID: ${row.children[0].textContent}`);
+      });
+    });
+  </script>
+</body>
+</html>

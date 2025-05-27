@@ -1081,3 +1081,206 @@ body, html {
     background: #a32626;
 }
 
+/* Administrador */
+
+/* Basado en tus estilos de hoteles y reservas */
+
+.admin-main {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    padding: 36px 40px 40px 40px;
+    margin-bottom: 32px;
+    margin-top: 32px;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    margin-bottom: 28px;
+}
+
+.tab-btn {
+    background: #eee;
+    color: #8e1b1b;
+    border: none;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: #8e1b1b;
+    color: #fff;
+}
+
+.admin-section {
+    display: none;
+}
+
+.admin-section.active {
+    display: block;
+}
+
+h2 {
+    color: #8e1b1b;
+    margin-bottom: 18px;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+h3 {
+    color: #444;
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 1.15rem;
+}
+
+.admin-form {
+    margin-bottom: 32px;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 180px;
+    min-width: 180px;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #444;
+}
+
+.form-group input,
+.form-group select {
+    padding: 9px 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #8e1b1b;
+    outline: none;
+}
+
+.form-btn {
+    align-self: flex-end;
+}
+
+.btn {
+    background: #8e1b1b;
+    color: white;
+    border: none;
+    padding: 11px 24px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 0 2px;
+    height: 38px;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    background: #a32626;
+}
+
+.btn-eliminar {
+    background: #d9534f;
+    color: white;
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-size: 0.97rem;
+    margin: 0 2px;
+}
+.btn-eliminar:hover {
+    background: #c9302c;
+}
+
+.btn-modificar {
+    background: #0275d8;
+    color: white;
+    padding: 7px 16px;
+    border-radius: 6px;
+    font-size: 0.97rem;
+    margin: 0 2px;
+}
+.btn-modificar:hover {
+    background: #025aa5;
+}
+
+.tabla-responsive {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fafafa;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+}
+
+.tabla th,
+.tabla td {
+    border: 1px solid #e1e1e1;
+    padding: 12px 14px;
+    text-align: left;
+    font-size: 0.99rem;
+}
+
+.tabla th {
+    background-color: #f4f4f4;
+    color: #555;
+    font-weight: 700;
+}
+
+.tabla tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .admin-main {
+        padding: 18px 8px;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-main {
+        padding: 8px 2vw;
+    }
+    .tab-btn {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    .tabla th, .tabla td {
+        font-size: 0.85rem;
+        padding: 7px 6px;
+    }
+}
