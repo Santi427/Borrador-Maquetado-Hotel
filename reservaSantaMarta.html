@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reserva Karaya Dive Resort | BreazeInTheMoon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/reserva.css" />
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-main">
+            <h2>BreazeInTheMoon</h2>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="#">Contáctenos</a></li>
+            </ul>
+            <a href="inicio-sesion.html" class="btn">INICIO DE SESION</a>
+        </nav>
+        <hr />
+
+        <main class="reserva-main">
+            <div class="reserva-card">
+                <h2 class="reserva-title">Reserva en Karaya Dive Resort</h2>
+                <form class="reserva-form" action="confirmacion.html" method="post">
+                    <!-- Selección de habitación -->
+                    <section class="reserva-section">
+                        <h3>Disponibilidad y tipo de habitación</h3>
+                        <div class="habitaciones-lista">
+                            <label>
+                                <input type="radio" name="tipo_habitacion" value="suite" checked>
+                                Suite<br>
+                                <span class="servicios">Incluye aire acondicionado, minibar, baño privado, vista al mar</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="tipo_habitacion" value="triple">
+                                Triple<br>
+                                <span class="servicios">Incluye aire acondicionado, minibar, baño privado</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="tipo_habitacion" value="familiar">
+                                Familiar<br>
+                                <span class="servicios">Incluye aire acondicionado, dos baños, piscina</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="tipo_habitacion" value="doble">
+                                Doble<br>
+                                <span class="servicios">Incluye aire acondicionado, baño privado</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="tipo_habitacion" value="doble_2_camas">
+                                Doble - 2 camas<br>
+                                <span class="servicios">Incluye aire acondicionado, baño privado</span>
+                            </label>
+                        </div>
+                    </section>
+
+                    <!-- Selección de personas -->
+                    <section class="reserva-section">
+                        <h3>¿Cuántas personas?</h3>
+                        <div class="reserva-row">
+                            <div>
+                                <label for="adultos">Adultos</label>
+                                <input type="number" id="adultos" name="adultos" min="1" max="6" value="2" required>
+                            </div>
+                            <div>
+                                <label for="ninos">Niños</label>
+                                <input type="number" id="ninos" name="ninos" min="0" max="6" value="0" required>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Fechas -->
+                    <section class="reserva-section">
+                        <h3>Fechas de la reserva</h3>
+                        <div class="reserva-row">
+                            <div>
+                                <label for="checkin">Check In</label>
+                                <input type="date" id="checkin" name="checkin" required>
+                            </div>
+                            <div>
+                                <label for="checkout">Check Out</label>
+                                <input type="date" id="checkout" name="checkout" required>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Datos del huésped -->
+                    <section class="reserva-section">
+                        <h3>Datos del huésped principal</h3>
+                        <div class="reserva-row">
+                            <div>
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div>
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="reserva-row">
+                            <div>
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            <div>
+                                <label for="documento">Documento de identidad</label>
+                                <input type="text" id="documento" name="documento" required>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Servicios adicionales -->
+                    <section class="reserva-section">
+                        <h3>Servicios adicionales</h3>
+                        <div class="servicios-adicionales">
+                            <label><input type="checkbox" name="servicio[]" value="spa"> Spa y centro de bienestar</label>
+                            <label><input type="checkbox" name="servicio[]" value="gimnasio"> Gimnasio</label>
+                            <label><input type="checkbox" name="servicio[]" value="snorkel"> Snorkel</label>
+                            <label><input type="checkbox" name="servicio[]" value="piscina"> Piscina exterior</label>
+                        </div>
+                    </section>
+
+                    <!-- Método de Pago: Solo Pago en el Hotel -->
+                    <section class="reserva-section">
+                        <h3>Método de Pago</h3>
+                        <div class="metodo-pago">
+                            <label class="metodo-option">
+                                <input type="radio" name="metodo_pago" value="presencial" checked>
+                                <span class="metodo-contenido">
+                                    <span class="metodo-icon">🏨</span>
+                                    <span class="metodo-texto">Pago en el<br>Hotel</span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="pago-contenido" id="presencial">
+                            <p class="info-pago">✅ Pagarás directamente en recepción al llegar al hotel.</p>
+                        </div>
+                    </section>
+                    
+                    <button type="submit" class="btn btn-confirmar">Confirmar Reserva</button>
+                </form>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 BreazeInTheMoon. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
